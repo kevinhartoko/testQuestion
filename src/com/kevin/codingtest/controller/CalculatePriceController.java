@@ -1,11 +1,11 @@
-package com.kevin.controller;
+package com.kevin.codingtest.controller;
 
 import java.util.Date;
 
-import com.kevin.model.CartModel;
-import com.kevin.model.UserModel;
+import com.kevin.codingtest.model.CartModel;
+import com.kevin.codingtest.model.UserModel;
 
-public class TestQuestion3Controller {
+public class CalculatePriceController {
 	public double calculateTotal(UserModel user, CartModel cart) {
 		double total;
 		double discount;
@@ -21,12 +21,7 @@ public class TestQuestion3Controller {
 		}
 		total = cart.getGroceries() + cart.getNonGroceries() - (discount/100)*cart.getNonGroceries();
 		//untuk discount 5$
-		int discount5 = 0;
-		double bill = total;
-		while(bill>=100) {
-			bill = bill-100;
-			discount5++;
-		}
+		int discount5 = bill / 100;
 		total = total - (discount5*5);
 		
 		return total;

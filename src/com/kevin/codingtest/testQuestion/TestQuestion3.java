@@ -1,4 +1,4 @@
-package com.kevin.testQuestion;
+package com.kevin.codingtest.testQuestion;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,18 +6,17 @@ import java.time.temporal.JulianFields;
 import java.util.Date;
 import java.util.Scanner;
 
-import com.kevin.controller.TestQuestion3Controller;
-import com.kevin.model.CartModel;
-import com.kevin.model.UserModel;
+import com.kevin.codingtest.controller.CalculatePriceController;
+import com.kevin.codingtest.model.CartModel;
+import com.kevin.codingtest.model.UserModel;
 
 public class TestQuestion3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		UserModel user = new UserModel();
 		CartModel cart = new CartModel();
-		TestQuestion3Controller controller = new TestQuestion3Controller();
+		CalculatePriceController controller = new CalculatePriceController();
 		
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Employee (Y/N)?");
@@ -43,7 +42,6 @@ public class TestQuestion3 {
 				date = simpleDateFormat.parse(dateString);
 				user.setJoinDate(date);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} while (date==null);
@@ -56,7 +54,6 @@ public class TestQuestion3 {
 				groceries = Double.parseDouble(groceriesString);
 				cart.setGroceries(groceries);
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} while (groceries==null);
@@ -69,7 +66,6 @@ public class TestQuestion3 {
 				nonGroceries = Double.parseDouble(nonGroceriesString);
 				cart.setNonGroceries(nonGroceries);
 			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} while (nonGroceries==null);

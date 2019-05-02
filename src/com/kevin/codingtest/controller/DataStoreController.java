@@ -1,12 +1,14 @@
-package com.kevin.controller;
+package com.kevin.codingtest.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-public class TestQuestion1Controller {
-	public String store(ArrayList<HashMap<String, String>> a) {
+public class DataStoreController {
+	public String store(List<Map<String, String>> a) {
 		String result = "";
 		for(int i=0;i<a.size();i++) {
 			Set<String> keys = a.get(i).keySet();
@@ -26,8 +28,8 @@ public class TestQuestion1Controller {
 		return result;
 	}
 	
-	public ArrayList<HashMap<String, String>> load(String a){
-		ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
+	public List<Map<String, String>> load(String a){
+		List<Map<String, String>> result = new ArrayList<Map<String, String>>();
 		String[] stringMap = a.split("\n");
 		for(int i =0;i<stringMap.length;i++) {
 			HashMap<String, String> map= new HashMap<String, String>();

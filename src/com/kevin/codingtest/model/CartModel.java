@@ -1,4 +1,4 @@
-package com.kevin.model;
+package com.kevin.codingtest.model;
 
 public class CartModel {
 	private double groceries;

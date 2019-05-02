@@ -1,4 +1,4 @@
-package com.kevin.test;
+package com.kevin.codingtest.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,50 +8,48 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import com.kevin.controller.TestQuestion3Controller;
-import com.kevin.model.CartModel;
-import com.kevin.model.UserModel;
+import com.kevin.codingtest.controller.CalculatePriceController;
+import com.kevin.codingtest.model.CartModel;
+import com.kevin.codingtest.model.UserModel;
 
-public class TestQuestion3ControllerTest {
-	TestQuestion3Controller controller = new TestQuestion3Controller();
+public class CalculatePriceControllerTest {
+	CalculatePriceController controller = new CalculatePriceController();
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
-	@Test
-	public void isMoreThan2Years_expected_true() {
-		String stringDate = "20/12/2016"; 
-		Date date = new Date();
+	private Date lessThan2Years;
+	private Date moreThan2Years;
+	
+	@Before
+    public void initiateValue() {
+		String lessThan2YearsString = "20/12/2018";
+		string moreThan2YearsString = "20/12/2016";
 		try {
-			date = sdf.parse(stringDate);
+			lessThan2Years = sdf.parse(lessThan2YearsString);
+			moreThan2Years = sdf.parse(moreThan2YearsString);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertEquals(true, controller.isMoreThan2Years(date));
+    }
+	
+	@Test
+	public void testIsMoreThan2YearsExpectedTrue() {
+		assertEquals(true, controller.isMoreThan2Years(moreThan2Years));
 	}
 	
 	@Test
-	public void isMoreThan2Years_expected_false() {
-		String stringDate = "20/12/2018"; 
-		Date date = new Date();
-		try {
-			date = sdf.parse(stringDate);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		assertEquals(false, controller.isMoreThan2Years(date));
+	public void testIsMoreThan2YearsExpectedFalse() {
+		assertEquals(false, controller.isMoreThan2Years(lessThan2Years));
 	}
 	
 	@Test
-	public void calculate_expected_use_30() {
+	public void testCalculateExpectedUse30() {
 		UserModel user = new UserModel();
 		CartModel cart = new CartModel();
 		user.setEmployee(true);
 		user.setAffiliate(true);
 		try {
-			user.setJoinDate(sdf.parse("20/12/2012"));
+			user.setJoinDate(moreThan2Years);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		cart.setGroceries(500);
@@ -60,15 +58,14 @@ public class TestQuestion3ControllerTest {
 	}
 	
 	@Test
-	public void calculate_expected_use_10() {
+	public void testCalculateExpectedEse10() {
 		UserModel user = new UserModel();
 		CartModel cart = new CartModel();
 		user.setEmployee(false);
 		user.setAffiliate(true);
 		try {
-			user.setJoinDate(sdf.parse("20/12/2012"));
+			user.setJoinDate(moreThan2Years);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		cart.setGroceries(500);
@@ -77,15 +74,14 @@ public class TestQuestion3ControllerTest {
 	}
 	
 	@Test
-	public void calculate_expected_use_5() {
+	public void testCalculateExpectedUse5() {
 		UserModel user = new UserModel();
 		CartModel cart = new CartModel();
 		user.setEmployee(false);
 		user.setAffiliate(false);
 		try {
-			user.setJoinDate(sdf.parse("20/12/2012"));
+			user.setJoinDate(moreThan2Years);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		cart.setGroceries(500);
@@ -94,15 +90,14 @@ public class TestQuestion3ControllerTest {
 	}
 	
 	@Test
-	public void calculate_expected_use_0() {
+	public void testCalculateExpectedUse0() {
 		UserModel user = new UserModel();
 		CartModel cart = new CartModel();
 		user.setEmployee(false);
 		user.setAffiliate(false);
 		try {
-			user.setJoinDate(sdf.parse("20/12/2018"));
+			user.setJoinDate(lessThan2Years);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		cart.setGroceries(500);

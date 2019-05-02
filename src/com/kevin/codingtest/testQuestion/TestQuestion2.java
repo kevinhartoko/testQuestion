@@ -1,9 +1,8 @@
-package com.kevin.testQuestion;
+package com.kevin.codingtest.testQuestion;
 
 public class TestQuestion2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 	}
 
 }
