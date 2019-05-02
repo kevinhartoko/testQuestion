@@ -2,7 +2,6 @@ package com.kevin.codingtest.testQuestion;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.temporal.JulianFields;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -18,6 +17,7 @@ public class TestQuestion3 {
 		CartModel cart = new CartModel();
 		CalculatePriceController controller = new CalculatePriceController();
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Employee (Y/N)?");
 		String employeeString = scanner.nextLine();
