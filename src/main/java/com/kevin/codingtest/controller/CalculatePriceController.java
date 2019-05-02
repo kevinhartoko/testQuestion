@@ -21,7 +21,7 @@ public class CalculatePriceController {
 		}
 		total = cart.getGroceries() + cart.getNonGroceries() - (discount/100)*cart.getNonGroceries();
 		//untuk discount 5$
-		int discount5 = bill / 100;
+		int discount5 = (int) total / 100;
 		total = total - (discount5*5);
 		
 		return total;

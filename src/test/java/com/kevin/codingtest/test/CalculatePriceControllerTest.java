@@ -6,7 +6,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import com.kevin.codingtest.controller.CalculatePriceController;
 import com.kevin.codingtest.model.CartModel;
@@ -22,7 +23,7 @@ public class CalculatePriceControllerTest {
 	@Before
     public void initiateValue() {
 		String lessThan2YearsString = "20/12/2018";
-		string moreThan2YearsString = "20/12/2016";
+		String moreThan2YearsString = "20/12/2016";
 		try {
 			lessThan2Years = sdf.parse(lessThan2YearsString);
 			moreThan2Years = sdf.parse(moreThan2YearsString);
@@ -47,11 +48,7 @@ public class CalculatePriceControllerTest {
 		CartModel cart = new CartModel();
 		user.setEmployee(true);
 		user.setAffiliate(true);
-		try {
-			user.setJoinDate(moreThan2Years);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		user.setJoinDate(moreThan2Years);
 		cart.setGroceries(500);
 		cart.setNonGroceries(1000);
 		assertEquals((double)1140, controller.calculateTotal(user, cart));
@@ -63,11 +60,7 @@ public class CalculatePriceControllerTest {
 		CartModel cart = new CartModel();
 		user.setEmployee(false);
 		user.setAffiliate(true);
-		try {
-			user.setJoinDate(moreThan2Years);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		user.setJoinDate(moreThan2Years);
 		cart.setGroceries(500);
 		cart.setNonGroceries(1000);
 		assertEquals((double)1330, controller.calculateTotal(user, cart));
@@ -79,11 +72,7 @@ public class CalculatePriceControllerTest {
 		CartModel cart = new CartModel();
 		user.setEmployee(false);
 		user.setAffiliate(false);
-		try {
-			user.setJoinDate(moreThan2Years);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		user.setJoinDate(moreThan2Years);
 		cart.setGroceries(500);
 		cart.setNonGroceries(1000);
 		assertEquals((double)1380, controller.calculateTotal(user, cart));
@@ -95,11 +84,7 @@ public class CalculatePriceControllerTest {
 		CartModel cart = new CartModel();
 		user.setEmployee(false);
 		user.setAffiliate(false);
-		try {
-			user.setJoinDate(lessThan2Years);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		user.setJoinDate(lessThan2Years);
 		cart.setGroceries(500);
 		cart.setNonGroceries(1000);
 		assertEquals((double)1425, controller.calculateTotal(user, cart));

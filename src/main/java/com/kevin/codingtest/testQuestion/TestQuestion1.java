@@ -15,11 +15,11 @@ public class TestQuestion1 {
 		//for test functin store
 		DataStoreController controller = new DataStoreController();
 		List<Map<String, String>> a = new ArrayList<Map<String, String>>();
-		HashMap<String, String> map= new HashMap<String, String>();
+		Map<String, String> map= new HashMap<String, String>();
 		map.put("key1","value1");
 		map.put("key2","value2");
-		HashMap<String, String> map1= new HashMap<String, String>();
-		map1.put("keyA","valueA");
+		Map<String, String> map1= new HashMap<String, String>();
+		map1.put("keyA","valueB");
 		map1.put("keyB","valueB");
 		a.add(map);
 		a.add(map1);
